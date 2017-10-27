@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+service Replicator {
+	rpc Hello(HelloRequest) returns (HelloResponse) {}
+	rpc StartReplication(StartReplicationRequest) returns (StartReplicationResponse) {}
+	rpc StopReplication(ReplicationRequest) returns (ReplicationResponse) {}
+	rpc ResumeReplication(ReplicationRequest) returns (ReplicationResponse) {}
+	rpc ListEndpoints(ReplicationRequest) returns (ListEndpointsResponse) {}
+}
+
+message HelloRequest {
+	string name = 1;
+}
+
+message HelloResponse {
+	string greeting = 2;
+}
+
+enum RepError {
+	RepNoError = 0;
+}
+
+message StartReplicationRequest {
+
+	string src_endpoint = 1;
+
+	string src_access_key  = 2;
+
+	string src_secret_key = 3;
+
+	string dst_endpoint = 4;
+
+	string dst_access_key = 5;
+
+	string dst_secret_key = 6;
+
+	string bucket = 7;
+}
+
+message StartReplicationResponse {
+
+	RepError error = 1;
+
+	string replication_id = 2;
+}
+
+// Generic replication request/response messages
+message ReplicationRequest {
+
+	string replication_id = 1;
+}
+
+message ReplicationResponse {
+
+	RepError error = 1;
+
+}
+
+message ReplicationEndpoint {
+
+	string src_endpoint = 1;
+
+	string dst_endpoint = 2;
+
+	string bucket = 3;
+
+	string state = 4;
+
+	string ReplicationId = 5;
+}
+
+message ListEndpointsResponse {
+
+	RepError error = 1;
+
+	repeated ReplicationEndpoint replication_endpoints = 2;
+}

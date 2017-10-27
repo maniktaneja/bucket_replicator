@@ -7,14 +7,14 @@ Adapted from : https://github.com/nats-io/demo-minio-nats
 Minio makes it easy to manage an object store with an S3 interface across multiple different platforms, 
 from your local desktop to other clouds beyond AWS.
 
-This replicator service allows you to asyncronously replicate buckets across two cloud storage deployments, 
-the source cloud however must be a minio. 
+This replicator service, built using go-micro allows you to asyncronously replicate buckets across 
+two cloud storage deployments, the source cloud however must be a minio. 
 
 # Assumptions
-Run this service on the same host as the source object store
+Run this service on the same host as the source object store  
 NATS running on localhost:4222
 
-#TODO
+# TODO
 Build fault-tolerance and failure handling etc.
 
 ![Diagram](/readme_img/diag.png?raw=true "Diagram")

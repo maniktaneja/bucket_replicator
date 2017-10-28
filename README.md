@@ -3,6 +3,8 @@ Use Minio to notify of changes through NATS and sync changes between two minio s
 and s3.
 Adapted from : https://github.com/nats-io/demo-minio-nats
 
+![Diagram](/readme_img/diag.png?raw=true "Diagram")
+
 # Overview
 Minio makes it easy to manage an object store with an S3 interface across multiple different platforms, 
 from your local desktop to other clouds beyond AWS.
@@ -17,7 +19,6 @@ NATS running on localhost:4222
 # TODO
 Build fault-tolerance and failure handling etc.
 
-![Diagram](/readme_img/diag.png?raw=true "Diagram")
 
 # Tutorial
 
